@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/users', [\App\Http\Controllers\UserController::class, 'index']);
 Route::get('/cars', [\App\Http\Controllers\CarController::class, 'index']);
+Route::get('/cars/create', [\App\Http\Controllers\CarController::class, 'create'])->name('car:create'); // route utk display form
