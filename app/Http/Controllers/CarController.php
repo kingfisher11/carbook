@@ -39,4 +39,13 @@ class CarController extends Controller
         // return to index
         return redirect()->route('car:index');
     }
+
+    public function show(Car $car)
+    {
+        // find id on table using model
+        // this function is using Binding Model
+
+        // return to view
+        return view('layouts.cars.show', compact('car'));
+    }
 }

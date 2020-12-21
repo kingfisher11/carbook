@@ -31,7 +31,7 @@
                     <td>{{$car->year}}</td>
                     <td>{{$car->plate}}</td>
                     <td>
-                    <a href="" class="btn btn-primary">View</a>
+                    <a href="{{ route('car:show', $car)}}" class="btn btn-primary">View</a>
                     </td>                     <td>
                     <a href="" class="btn btn-success">Edit</a>
                     </td>
