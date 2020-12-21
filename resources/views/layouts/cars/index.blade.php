@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Car Index') }}</div>
 
@@ -17,6 +17,7 @@
                     <th>Price</th>
                     <th>Year Manufactured</th>
                     <th>Plate Number</th>
+                    <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,14 @@
                     <td>{{$car->price}}</td>
                     <td>{{$car->year}}</td>
                     <td>{{$car->plate}}</td>
+                    <td>
+                    <a href="" class="btn btn-primary">View</a>
+                    </td>                     <td>
+                    <a href="" class="btn btn-success">Edit</a>
+                    </td>
+                    <td>
+                    <a onClick="return confirm('Are you sure?')" href="" class="btn btn-danger">Delete</a>
+                    </td>
 
                     
                     </tr>
