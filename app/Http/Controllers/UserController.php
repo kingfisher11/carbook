@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CarController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
         // query trainings from trainings table using model
-        $cars = \App\Models\Car::all();
+        $users = \App\Models\User::all();
         // return to view with $trainings
         //resources/view/users/index.blade.php
-        return view('layouts.cars.index', compact('cars'));
+        return view('layouts.users.index', compact('users'));
     }
 }

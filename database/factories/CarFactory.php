@@ -23,11 +23,11 @@ class CarFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text,
+            'name' => $this->faker->name,
             'model' => $this->faker->text,
-            'price' => $this->faker->text,
-            'year' => $this->faker->text,
-            'plate' => $this->faker->text
+            'price' => $this->faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
+            'year' => $this->faker->biasedNumberBetween($min = 1, $max = 10, $function = 'sqrt'),
+            'plate' => $this->faker->biasedNumberBetween($min = 1, $max = 20, $function = 'sqrt')
         ];
     }
 }
