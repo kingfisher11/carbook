@@ -17,7 +17,7 @@ class CreateCarsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('model');
-            $table->double('price', 8, 2);
+            $table->float('price', 8, 2);
             $table->integer('year');
             $table->string('plate');
             $table->timestamps();
