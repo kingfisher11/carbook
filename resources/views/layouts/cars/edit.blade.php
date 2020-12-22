@@ -22,7 +22,7 @@
                     
                     <div class="form-group">
                         <label>Price</label>
-                        <input type="text" name="trainer" class="form-control" value="{{ $car->price }}">
+                        <input type="text" name="price" class="form-control" value="{{ $car->price }}">
                     </div>
 
                     <div class="form-group">

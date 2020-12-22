@@ -7,13 +7,24 @@ use App\Models\Car;
 
 class CarController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if($request->keyword){
+            $search = $request->keyword;
+
+            $cars = Car::where('name','LIKE','%'.$search.'%')->paginate(5);
+        } else {
+
+        
+        
+        
         // query trainings from trainings table using model
-        $cars = \App\Models\Car::all();
-        // return to view with $trainings
-        //resources/view/users/index.blade.php
-        return view('layouts.cars.index', compact('cars'));
+            $cars = \App\Models\Car::all();
+        }
+            // return to view with $trainings
+            //resources/view/users/index.blade.php
+            return view('layouts.cars.index', compact('cars'));
+        
     }
 
     public function create()
@@ -37,7 +48,12 @@ class CarController extends Controller
         //$car->user_id = auth()->user()->id;
         $car->save();
         // return to index
-        return redirect()->route('car:index');
+        return redirect()
+        ->route('car:index')
+        ->with([
+            'alert-type' => 'alert-success',
+            'alert' => 'Your car has been saved!'
+        ]);
     }
 
     public function show(Car $car)
@@ -59,17 +75,23 @@ class CarController extends Controller
         return view('layouts.cars.edit', compact('car'));
     }
 
-    public function update($id, Request $request)
+    public function update(Car $car)
     {
         // find id at tables
-        $car = Car::find($id);
+        //$car = Car::find($id);
 
         // update training with edited attributes
         // method 2 - mass assignment
-        $car->update($request->only('name', 'model', 'price', 'year', 'plate'));
+        $car->update($car->only('name', 'model', 'price', 'year', 'plate'));
 
         // return to trainings
-        return redirect()->route('car:index');
+        return redirect()
+        ->route('car:index')
+        ->with([
+            'alert-type' => 'alert-success',
+            'alert' => 'Your car has been updated!'
+        ])
+        ;
     }
 
     public function delete(Car $car)
@@ -80,6 +102,11 @@ class CarController extends Controller
         $car->delete();
 
         // return to view
-        return redirect()->route('car:index');
+        return redirect()
+        ->route('car:index')
+        ->with([
+            'alert-type' => 'alert-danger',
+            'alert' => 'Your car has been deleted!'
+        ]);
     }
 }
