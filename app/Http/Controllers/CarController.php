@@ -48,4 +48,38 @@ class CarController extends Controller
         // return to view
         return view('layouts.cars.show', compact('car'));
     }
+
+    public function edit($id)
+    {
+        // find id on table using model
+        $car = Car::find($id);
+
+
+        // return to view
+        return view('layouts.cars.edit', compact('car'));
+    }
+
+    public function update($id, Request $request)
+    {
+        // find id at tables
+        $car = Car::find($id);
+
+        // update training with edited attributes
+        // method 2 - mass assignment
+        $car->update($request->only('name', 'model', 'price', 'year', 'plate'));
+
+        // return to trainings
+        return redirect()->route('car:index');
+    }
+
+    public function delete(Car $car)
+    {
+        // find id on table using model
+        //$training = Training::find($id);
+        // this function is using Binding Model
+        $car->delete();
+
+        // return to view
+        return redirect()->route('car:index');
+    }
 }

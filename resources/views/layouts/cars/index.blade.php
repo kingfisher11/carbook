@@ -33,10 +33,10 @@
                     <td>
                     <a href="{{ route('car:show', $car)}}" class="btn btn-primary">View</a>
                     </td>                     <td>
-                    <a href="" class="btn btn-success">Edit</a>
+                    <a href="{{ route('car:edit', $car)}}" class="btn btn-success">Edit</a>
                     </td>
                     <td>
-                    <a onClick="return confirm('Are you sure?')" href="" class="btn btn-danger">Delete</a>
+                    <a onClick="return confirm('Are you sure?')" href="{{ route('car:delete', $car)}}" class="btn btn-danger">Delete</a>
                     </td>
 
                     

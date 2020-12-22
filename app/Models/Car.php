@@ -9,6 +9,8 @@ class Car extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'model', 'price', 'year', 'plate'];
+
         // relationship for table user and trainings
         public function user()
         {

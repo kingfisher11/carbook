@@ -26,3 +26,6 @@ Route::get('/cars', [\App\Http\Controllers\CarController::class, 'index'])->name
 Route::get('/cars/create', [\App\Http\Controllers\CarController::class, 'create'])->name('car:create'); // route utk display form
 Route::post('/cars/create', [\App\Http\Controllers\CarController::class, 'store']); //route utk simpan data
 Route::get('/cars/{car}',[App\Http\Controllers\CarController::class, 'show'])->name('car:show');
+Route::get('/cars/{id}/edit',[App\Http\Controllers\CarController::class, 'edit'])->name('car:edit');
+Route::post('/cars/{id}/edit',[App\Http\Controllers\CarController::class, 'update'])->name('car:update');
+Route::get('/cars/{car}/delete',[App\Http\Controllers\CarController::class, 'delete'])->name('car:delete');
